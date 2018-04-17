@@ -26,6 +26,13 @@ pipeline {
     MY_NAME = 'Jason'
     TEST_USER = credentials('test-user')
   }
+  post {
+    success {
+      echo 'Success!'
+      
+    }
+    
+  }
   parameters {
     string(name: 'Name', defaultValue: 'whoever you are', description: 'Who should I say hi to?')
   }
