@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Say Hello') {
       steps {
-        echo 'Hello World!'
+        echo 'echo "Hello ${MY_NAME}!"'
       }
     }
     stage('Go Version') {
@@ -11,5 +11,8 @@ pipeline {
         sh 'java -version'
       }
     }
+  }
+  environment {
+    MY_NAME = 'Jason'
   }
 }
