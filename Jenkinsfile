@@ -1,3 +1,4 @@
+library 'SharedLibs'
 pipeline {
   agent any
   stages {
@@ -12,6 +13,11 @@ pipeline {
       steps {
         sh 'java -version'
       }
+    }
+    stage('Shared Lib') {
+         steps {
+             helloWorld("Jenkins")
+         }
     }
     stage('Testing') {
       failFast true
