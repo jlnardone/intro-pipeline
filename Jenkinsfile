@@ -8,17 +8,27 @@ pipeline {
         echo "${TEST_USER_PSW}"
       }
     }
-    stage('Deploy') {
-      input {
-        message 'Should we continue?'
-      }
-      steps {
-        echo 'Continuing with deployment'
-      }
-    }
     stage('Java Version') {
       steps {
         sh 'java -version'
+      }
+    }
+    stage('Get Kernel') {
+      steps {
+        script {
+          try {
+            KERNEL_VERSION = sh (script: "uname -r", returnStdout: true)
+          } catch(err) {
+            echo "CAUGHT ERROR: ${err}"
+            throw err
+          }
+        }
+        
+      }
+    }
+    stage('Say Kernel') {
+      steps {
+        echo "${KERNEL_VERSION}"
       }
     }
   }
