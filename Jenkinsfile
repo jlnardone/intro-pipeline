@@ -8,7 +8,15 @@ pipeline {
         echo "${TEST_USER_PSW}"
       }
     }
-    stage('Go Version') {
+    stage('Deploy') {
+      input {
+        message 'Should we continue?'
+      }
+      steps {
+        echo 'Continuing with deployment'
+      }
+    }
+    stage('Java Version') {
       steps {
         sh 'java -version'
       }
