@@ -1,12 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    label 'jdk9'
+  }
   stages {
     stage('Say Hello') {
       steps {
         echo 'Hello World!'
       }
     }
-    stage('error') {
+    stage('Java Version') {
       steps {
         sh 'java -version'
       }
