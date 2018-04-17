@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Say Hello') {
       steps {
-        echo 'echo "Hello ${MY_NAME}!"'
+        echo "Hello ${MY_NAME}!"
       }
     }
     stage('Go Version') {
